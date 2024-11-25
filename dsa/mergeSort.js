@@ -22,4 +22,16 @@ function mergSortAlogaritham(array1, array2) {
     }
     return combined;
 }
-console.log(mergSortAlogaritham([1, 3, 6, 8, 9], [2, 4, 7, 5]))
+console.log("Giving Multiple Arrays",mergSortAlogaritham([1, 3, 6, 8, 9], [2, 4, 7, 5]))
+
+
+function mergeSortOneArray(oneArray) {
+    if (oneArray.length === 1) return oneArray
+    let mid=Math.floor(oneArray.length/2)
+    let left=oneArray.slice(0,mid)
+    let right=oneArray.slice(mid)
+
+    return mergSortAlogaritham(mergeSortOneArray(left),mergeSortOneArray(right))
+
+}
+console.log("Giving Single Array",mergeSortOneArray([1,7,5,3,9,5,8]))
